@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title data-i18n="pageTitle">© Mountain Mods | Matrixborden Web Live Control</title>
+    <link rel="stylesheet" href="ui.css">
+    <script src="config.js"></script>
+    <script src="minimap_data.js"></script>
+</head>
+<body class="in-web">
+    <div id="layout" class="layout">
+        <div class="viewer" id="viewer">
+            <div class="map-inner" id="mapInner">
+                <img id="mapImage" src="minimap.png" alt="wegenkaart" width="2304" height="2304" />
+            </div>
+
+            <div class="overlay" id="overlay"></div>
+
+            <div class="controls">
+                <h1 style="padding:4px 6px;" class="controls-h1" data-i18n="legend">Legenda</h1>
+                <div class="flex column">
+                    <div class="flex row" style="align-items: center;">
+                        <div class="marker-legenda"></div>
+                        <p style="line-height: 32px;" class="legenda-label" data-i18n="matrixInactive">Matrix inactief</p>
+                    </div>
+                    <div class="spacer10"></div>
+                    <div class="flex row" style="align-items: center;">
+                        <div class="marker-legenda active"></div>
+                        <p style="line-height: 32px;" class="legenda-label" data-i18n="matrixActive">Matrix actief</p>
+                    </div>
+                </div>
+                <div style="padding:4px 6px; font-size:13px;"><span data-i18n="zoom">Zoom:</span> <span id="zoomLabel">1.00x</span></div>
+                <div style="padding:4px 6px; font-size:13px;" data-i18n="seaNote">De rijbaan die het dichtst bij de zee ligt, wordt aangeduid als de rechter rijstrook.</div>
+                <div style="padding:4px 6px; font-size:13px;" data-i18n="copyright">© Mountain Mods - Alle rechten voorbehouden.</div>
+            </div>
+        </div>
+
+        <div id="menu" class="aanpasMenu">
+            <div class="menuinner">
+                <h1 class="menuTitel" id="menuTitel" data-i18n="menuTitle">Wijzig verkeerssituatie</h1>
+                <h3 id="menuSubtitel" style="margin: 0; padding-bottom: 20px;"></h3>
+                <div class="aanpasMenu-onderdeel">
+                    <h2 style="margin: 0; font-weight: bold;" data-i18n="left">Links</h2>
+                    <div style="margin-top: 5px; border-radius: 5px; background-color: #8b8b8b; height: 1px;"></div>
+                    <div id="rijstrookL1">
+                        <p data-i18n="lane1">Rijstrook 1</p>
+                        <select id="L1">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                    <div id="rijstrookL2">
+                        <p data-i18n="lane2">Rijstrook 2</p>
+                        <select id="L2">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                    <div id="rijstrookL3">
+                        <p data-i18n="lane3">Rijstrook 3</p>
+                        <select id="L3">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                    <div id="rijstrookL4">
+                        <p data-i18n="lane4">Rijstrook 4</p>
+                        <select id="L4">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="spacer10"></div>
+                <div class="aanpasMenu-onderdeel">
+                    <h2 style="margin: 0; font-weight: bold;" data-i18n="right">Rechts</h2>
+                    <div style="margin-top: 5px; border-radius: 5px; background-color: #8b8b8b; height: 1px;"></div>
+                    <div id="rijstrookR1">
+                        <p data-i18n="lane1">Rijstrook 1</p>
+                        <select id="R1">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                    <div id="rijstrookR2">
+                        <p data-i18n="lane2">Rijstrook 2</p>
+                        <select id="R2">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                    <div id="rijstrookR3">
+                        <p data-i18n="lane3">Rijstrook 3</p>
+                        <select id="R3">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                    <div id="rijstrookR4">
+                        <p data-i18n="lane4">Rijstrook 4</p>
+                        <select id="R4">
+                            <option value="" selected="true" disabled="true" data-i18n="makeChoice">Maak een keuze...</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="advisorySpeeds">ADVIESSNELHEDEN</option>
+                            <option value="tien">10</option>
+                            <option value="twintig">20</option>
+                            <option value="dertig">30</option>
+                            <option value="veertig">40</option>
+                            <option value="vijftig">50</option>
+                            <option value="zestig">60</option>
+                            <option value="zeventig">70</option>
+                            <option value="tachtig2">80</option>
+                            <option value="negentig">90</option>
+                            <option value="honderd">100</option>
+                            <option value="honderdtien">110</option>
+                            <option value="honderdtwintig">120</option>
+                            <option value="honderddertig">130</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="trafficSigns">VERKEERSTEKENS</option>
+                            <option value="kruis" data-i18n="cross">Kruis</option>
+                            <option value="ophef" data-i18n="clear">Opheffing</option>
+                            <option value="pijl links" data-i18n="arrowLeft">Pijl links</option>
+                            <option value="pijl rechts" data-i18n="arrowRight">Pijl rechts</option>
+                            <option value="pijlg" data-i18n="arrowGreen">Groene pijl</option>
+                            <option style="font-weight: bolder; color: #fff;" disabled="true" value="volvo" data-i18n="warningSigns">WAARSCHUWINGEN</option>
+                            <option value="file" data-i18n="trafficJam">File</option>
+                            <option value="ongeval" data-i18n="accident">Ongeval</option>
+                            <option value="glad" data-i18n="slippery">Gladheid</option>
+                            <option value="uitroepteken" data-i18n="hazard">Gevaar / Uitroepteken</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="spacer10"></div>
+                <button onclick="herstel()" class="verwijderen" data-i18n="restoreBtn">HERSTEL ORIGINELE SITUATIE</button>
+                <button onclick="wijzigSituatie()" class="wijzigen" data-i18n="applyBtn">WIJZIG SITUATIE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

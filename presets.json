@@ -1,0 +1,44 @@
+[
+  {
+    "id": "preset_spitsstrook",
+    "title": "Spitsstrook Open (80)",
+    "type": "tijdelijk",
+    "description": "Opent de spitsstrook met adviessnelheid 80 op alle rijstroken",
+    "lanes": { "L1": "tachtig2", "L2": "tachtig2", "L3": "tachtig2", "R1": "tachtig2", "R2": "tachtig2" }
+  },
+  {
+    "id": "preset_file_50",
+    "title": "Filewaarschuwing (50 + File)",
+    "type": "tijdelijk",
+    "description": "Waarschuwt naderend verkeer voor een file met 50 km/h en filetekens",
+    "lanes": { "L1": "vijftig", "L2": "file", "R1": "vijftig", "R2": "file" }
+  },
+  {
+    "id": "preset_ongeval",
+    "title": "Calamiteit / Ongeval 50",
+    "type": "tijdelijk",
+    "description": "Adviessnelheid 50 met een rood kruis en ongevalteken op de rechterrijstrook",
+    "lanes": { "L1": "vijftig", "L2": "vijftig", "R1": "vijftig", "R2": "kruis" }
+  },
+  {
+    "id": "preset_gladheid",
+    "title": "Gladheidswaarschuwing (70 + Glad)",
+    "type": "tijdelijk",
+    "description": "Adviessnelheid 70 km/h gecombineerd met waarschuwingsteken voor gladheid",
+    "lanes": { "L1": "zeventig", "L2": "glad", "R1": "zeventig", "R2": "glad" }
+  },
+  {
+    "id": "preset_gevaar",
+    "title": "Algemeen Gevaar (50 + Uitroepteken)",
+    "type": "tijdelijk",
+    "description": "Adviessnelheid 50 met algemeen gevaarteken / uitroepteken",
+    "lanes": { "L1": "vijftig", "L2": "uitroepteken", "R1": "vijftig", "R2": "uitroepteken" }
+  },
+  {
+    "id": "preset_wegwerkzaamheden",
+    "title": "Wegwerkzaamheden 70",
+    "type": "vast",
+    "description": "Vaste maatregel voor geplande wegwerkzaamheden met 70 km/h",
+    "lanes": { "L1": "zeventig", "L2": "zeventig", "R1": "zeventig", "R2": "zeventig" }
+  }
+]
